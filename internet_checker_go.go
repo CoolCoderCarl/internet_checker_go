@@ -9,7 +9,7 @@ import (
 func main() {
 	argURL := flag.String("url", ".", "Destination")
 	argRetryCount := flag.String("retry", ".", "Retry count")
-	argProtocolICMP := flag.String("icmp", ".", "Bool")
+	argProtocolICMP := flag.BoolVar("icmp", false, "Bool")
 	flag.Parse()
 
 	switch os.Args[1] {
