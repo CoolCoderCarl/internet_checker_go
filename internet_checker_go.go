@@ -3,22 +3,21 @@ package main
 import (
 	"flag"
 	"fmt"
-	"os"
 )
 
 func main() {
+	var icmp bool
+
 	argURL := flag.String("url", ".", "Destination")
 	argRetryCount := flag.String("retry", ".", "Retry count")
-	argProtocolICMP := flag.BoolVar("icmp", false, "Bool")
+	flag.BoolVar(&icmp, "icmp", false, "Bool")
 	flag.Parse()
 
-	switch os.Args[1] {
-	case "--url":
+	if icmp {
+		fmt.Print("ICMP")
+	} else {
 		fmt.Println(*argURL)
-	case "--retry":
 		fmt.Println(*argRetryCount)
-	case "--icmp":
-		fmt.Println(*argProtocolICMP)
 	}
 
 }
